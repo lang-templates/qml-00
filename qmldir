@@ -1,0 +1,5 @@
+module Charts
+typeinfo quick-00.qmltypes
+depends QtQuick
+prefer :/qt/qml/Charts/
+App 254.0 App.qml

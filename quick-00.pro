@@ -4,14 +4,18 @@ CONFIG += c++17
 CONFIG += console
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        piechart.cpp
 
-resources.files = main.qml MyToolbar.qml
-resources.prefix = /$${TARGET}
-RESOURCES += resources
+#resources.files = main.qml MyToolbar.qml
+#resources.prefix = /$${TARGET}
+#RESOURCES += resources
 
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
+CONFIG += qmltypes
+QML_IMPORT_NAME = Charts
+QML_IMPORT_MAJOR_VERSION = 1
 
-# Additional import path used to resolve QML modules just for Qt Quick Designer
-QML_DESIGNER_IMPORT_PATH =
+HEADERS += \
+    piechart.h
+
+RESOURCES += qml.qrc

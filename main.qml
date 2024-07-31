@@ -6,6 +6,10 @@ Window {
     visible: true
     width: 640; height: 480
 
+    Component.onCompleted: {
+        console.log("created");
+    }
+
     MyToolbar {
         id: myToolbar
         width: parent.width

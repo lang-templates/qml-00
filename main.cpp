@@ -1,15 +1,21 @@
-#include <QtCore>
+//#include <QtCore>
+//#include <QGuiApplication>
+//#include <QQmlApplicationEngine>
+#include "piechart.h"
+#include <QtQuick/QQuickView>
 #include <QGuiApplication>
-#include <QQmlApplicationEngine>
+
 
 int main(int argc, char *argv[])
 {
+#if false
     QGuiApplication app(argc, argv);
 
     qDebug() << "started!";
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/quick-00/main.qml"));
+    //const QUrl url(QStringLiteral("qrc:/quick-00/main.qml"));
+    const QUrl url(QStringLiteral("qrc:/QML/main.qml"));
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreated,
@@ -19,8 +25,16 @@ int main(int argc, char *argv[])
                 QCoreApplication::exit(-1);
         },
         Qt::QueuedConnection);
-    //engine.load( QUrl("qrc:/quick-00/MyToolbar.qml") );
     engine.load(url);
 
     return app.exec();
+#else
+    QGuiApplication app(argc, argv);
+
+    QQuickView view;
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.loadFromModule("Charts", "App");
+    view.show();
+    return QGuiApplication::exec();
+#endif
 }
