@@ -1,9 +1,12 @@
+#include <QtCore>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+    qDebug() << "started!";
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/quick-00/main.qml"));
