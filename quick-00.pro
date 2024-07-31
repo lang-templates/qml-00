@@ -1,5 +1,8 @@
 QT += quick
 
+CONFIG += c++17
+CONFIG += console
+
 SOURCES += \
         main.cpp
 
